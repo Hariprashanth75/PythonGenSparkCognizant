@@ -1,3 +1,5 @@
+import turtle
+import time
 # name = "Alex"
 # age = 25
 # height = 6.5
@@ -222,33 +224,137 @@
 # inventory["apple"]=(12, 2.5)
 # inventory.pop("banana")
 
-inventory = {}
+# inventory = {}
 
-# Get the number of items to be added to the inventory
-num_items = int(input("Enter the number of items: "))
+# # Get the number of items to be added to the inventory
+# num_items = int(input("Enter the number of items: "))
 
-# Add items to the inventory
-for i in range(num_items):
-    item_name = input("Enter the name of the item: ")
-    item_quantity = int(input("Enter the quantity of the item: "))
-    item_price = float(input("Enter the price of the item: "))
-    inventory[item_name] = (item_quantity, item_price)
+# # Add items to the inventory
+# for i in range(num_items):
+#     item_name = input("Enter the name of the item: ")
+#     item_quantity = int(input("Enter the quantity of the item: "))
+#     item_price = float(input("Enter the price of the item: "))
+#     inventory[item_name] = (item_quantity, item_price)
     
-for item, (quantity, price) in inventory.items():
-    print(f"{item}: {quantity} in stock, ${price:.2f} per unit")
+# for item, (quantity, price) in inventory.items():
+#     print(f"{item}: {quantity} in stock, ${price:.2f} per unit")
     
-total_value = sum(quantity * price for quantity, price in inventory.values())
-print(f"Total value of inventory: {total_value}")
+# total_value = sum(quantity * price for quantity, price in inventory.values())
+# print(f"Total value of inventory: {total_value}")
 
 
 
 
+# def add(a, b):
+#     return a + b
+# def subtract(a, b):
+#     return a - b
+# def multiply(a, b):
+#     return a * b
+# def divide(a, b):
+#     if b == 0:
+#         return "Cannot divide by zero"
+#     return a / b
 
+# def greet(name):
+#     return f"Hello, {name}!"
 
+# name = input("Enter your name")
+# print(greet(name))
 
+# print("Select operation:")
+# print("1. Add")
+# print("2. Subtract")
+# print("3. Multiply")
+# print("4. Divide")
+# choice = input("Enter choice (1/2/3/4): ")
+# num1 = float(input("Enter first number: "))
+# num2 = float(input("Enter second number: "))
+# if choice == '1':
+#     print(num1, "+", num2, "=", add(num1, num2))
 
+# elif choice == '2':
+#     print(num1, "-", num2, "=", subtract(num1, num2))
+    
+# elif choice == '3':
+#     print(num1, "*", num2, "=", multiply(num1, num2))
+# elif choice == '4':
+#     print(num1, "/", num2, "=", divide(num1, num2))
 
+# else:
+#     print("Invalid input")
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib_sequence = [0, 1]
+        for i in range(2, n):
+            next_number = fib_sequence[i-1] + fib_sequence[i-2]
+            fib_sequence.append(next_number)
+        return fib_sequence
 
+def draw_fractal_tree(turtle, branch_length, level):
+    if level > 0:
+        turtle.forward(branch_length)
+        turtle.left(30)
+        draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
+        turtle.right(60)
+        draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
+        turtle.left(30)
+        turtle.backward(branch_length)
+
+def factorial(num):
+    if num == 1:
+        return 1
+    return num * factorial(num - 1)
+
+def main():
+    while True:
+        print("1 Recursive fractal pattern")
+        print("2 Fibonacci")
+        print("3 Factorial")
+        print("4 Exit")
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            screen = turtle.Screen()
+            screen.bgcolor("white")
+
+            fractal_turtle = turtle.Turtle()
+            fractal_turtle.speed(0)  # Fastest drawing speed
+
+            fractal_turtle.penup()
+            fractal_turtle.goto(0, -200)
+            fractal_turtle.pendown()
+            fractal_turtle.left(90)  # Point the turtle upwards
+
+            draw_fractal_tree(fractal_turtle, 100, 5)
+
+            fractal_turtle.hideturtle()
+            time.sleep(5)
+            turtle.done()
+        elif choice == 2:
+            n = int(input("Enter the number of terms: "))
+            fib_sequence = fibonacci(n)
+            print("Fibonacci sequence:")
+            print(fib_sequence)
+        elif choice == 3:
+            num = int(input("Enter a number: "))
+            result = factorial(num)
+            print(f"The factorial of {num} is {result}")
+        elif choice == 4:
+            print("Exit confirmed")
+            break
+        else:
+            print("Invalid choice, please enter 1, 2, 3, or 4.")
+
+if __name__ == "__main__":
+    main()
+
+    
 
 
 
