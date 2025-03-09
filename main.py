@@ -1,5 +1,10 @@
 import turtle
 import time
+import logging
+
+#This project contains all the assignments and projects from the course Introduction to Programming in Python, I commented out the code that I completed as I went along.
+
+#Basic strings
 # name = "Alex"
 # age = 25
 # height = 6.5
@@ -242,7 +247,7 @@ import time
 # total_value = sum(quantity * price for quantity, price in inventory.values())
 # print(f"Total value of inventory: {total_value}")
 
-
+#Calculator app basic
 
 
 # def add(a, b):
@@ -283,83 +288,180 @@ import time
 
 # else:
 #     print("Invalid input")
-def fibonacci(n):
-    if n <= 0:
-        return []
-    elif n == 1:
-        return [0]
-    elif n == 2:
-        return [0, 1]
-    else:
-        fib_sequence = [0, 1]
-        for i in range(2, n):
-            next_number = fib_sequence[i-1] + fib_sequence[i-2]
-            fib_sequence.append(next_number)
-        return fib_sequence
 
-def draw_fractal_tree(turtle, branch_length, level):
-    if level > 0:
-        turtle.forward(branch_length)
-        turtle.left(30)
-        draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
-        turtle.right(60)
-        draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
-        turtle.left(30)
-        turtle.backward(branch_length)
+# def fibonacci(n):
+#     if n <= 0:
+#         return []
+#     elif n == 1:
+#         return [0]
+#     elif n == 2:
+#         return [0, 1]
+#     else:
+#         fib_sequence = [0, 1]
+#         for i in range(2, n):
+#             next_number = fib_sequence[i-1] + fib_sequence[i-2]
+#             fib_sequence.append(next_number)
+#         return fib_sequence
 
-def factorial(num):
-    if num == 1:
-        return 1
-    return num * factorial(num - 1)
+# def draw_fractal_tree(turtle, branch_length, level):
+#     if level > 0:
+#         turtle.forward(branch_length)
+#         turtle.left(30)
+#         draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
+#         turtle.right(60)
+#         draw_fractal_tree(turtle, branch_length * 0.7, level - 1)
+#         turtle.left(30)
+#         turtle.backward(branch_length)
 
-def main():
-    while True:
-        print("1 Recursive fractal pattern")
-        print("2 Fibonacci")
-        print("3 Factorial")
-        print("4 Exit")
-        choice = int(input("Enter your choice: "))
-        if choice == 1:
-            screen = turtle.Screen()
-            screen.bgcolor("white")
+# def factorial(num):
+#     if num == 1:
+#         return 1
+#     return num * factorial(num - 1)
 
-            fractal_turtle = turtle.Turtle()
-            fractal_turtle.speed(0)  # Fastest drawing speed
+# def main():
+#     while True:
+#         print("1 Recursive fractal pattern")
+#         print("2 Fibonacci")
+#         print("3 Factorial")
+#         print("4 Exit")
+#         choice = int(input("Enter your choice: "))
+#         if choice == 1:
+#             screen = turtle.Screen()
+#             screen.bgcolor("white")
 
-            fractal_turtle.penup()
-            fractal_turtle.goto(0, -200)
-            fractal_turtle.pendown()
-            fractal_turtle.left(90)  # Point the turtle upwards
+#             fractal_turtle = turtle.Turtle()
+#             fractal_turtle.speed(0)  # Fastest drawing speed
 
-            draw_fractal_tree(fractal_turtle, 100, 5)
+#             fractal_turtle.penup()
+#             fractal_turtle.goto(0, -200)
+#             fractal_turtle.pendown()
+#             fractal_turtle.left(90)  # Point the turtle upwards
 
-            fractal_turtle.hideturtle()
-            time.sleep(5)
-            turtle.done()
-        elif choice == 2:
-            n = int(input("Enter the number of terms: "))
-            fib_sequence = fibonacci(n)
-            print("Fibonacci sequence:")
-            print(fib_sequence)
-        elif choice == 3:
-            num = int(input("Enter a number: "))
-            result = factorial(num)
-            print(f"The factorial of {num} is {result}")
-        elif choice == 4:
-            print("Exit confirmed")
-            break
-        else:
-            print("Invalid choice, please enter 1, 2, 3, or 4.")
+#             draw_fractal_tree(fractal_turtle, 100, 5)
 
-if __name__ == "__main__":
-    main()
+#             fractal_turtle.hideturtle()
+#             time.sleep(5)
+#             turtle.done()
+#         elif choice == 2:
+#             n = int(input("Enter the number of terms: "))
+#             fib_sequence = fibonacci(n)
+#             print("Fibonacci sequence:")
+#             print(fib_sequence)
+#         elif choice == 3:
+#             num = int(input("Enter a number: "))
+#             result = factorial(num)
+#             print(f"The factorial of {num} is {result}")
+#         elif choice == 4:
+#             print("Exit confirmed")
+#             break
+#         else:
+#             print("Invalid choice, please enter 1, 2, 3, or 4.")
 
+# if __name__ == "__main__":
+#     main()
+
+# #Task 1
+# try:
+#      value = int(input("Enter a number: "))    
+#      print(100/value)
+# except ValueError as e:
+#      print("Invalid input. Please enter a valid integer.")
+# except ZeroDivisionError:
+#      print("Cannot divide by zero.")    
+ 
+# #Task 2
+# my_dict ={
+#     "name" : "Alex",
+#     "age" : 25,
+#     "city" : "Mumbai"
+# }
+# try:
+#     print(my_dict["phone"])
+# except KeyError as e:
+#     print("Key not found in the dictionary.")    
+
+# my_list = [1,4,5,3,2,10]
+
+# try:
+#     print(my_list[10])
+# except IndexError as e:
+#     print("Index out of range.")    
+
+# str_value = "Hello"
+# int_value = 1
+
+# try:
+#     result = str_value + int_value
+#     print(result)
+# except TypeError as e:
+#     print("Cannot concatenate string and integer.")
+
+# #Task 3
+# num1 = int(input("Enter the first number: "))
+# num2 = int(input("Enter the second number: "))
+
+# try:
+#     result = num1 / num2
     
+# except ZeroDivisionError as e:
+#     print("Cannot divide by zero.")
+# except ValueError as e:
+#     print("Invalid input. Please enter valid integers.")    
+# else:
+#     print(f"The result of {num1} / {num2} is {result}")
+# finally:
+#     print("Program execution completed.")
+
+#Project
+logging.basicConfig(filename='error_log.txt', level=logging.ERROR,
+    format='%(levelname)s:%(name)s:%(message)s')
+
+print("Choose which operation to perform:")
+print("1. Addition")
+print("2. Subtraction")
+print("3. Multiplication")
+print("4. Division")
+print("5. Exit")
 
 
+while True:
+    choice = input("Enter your choice (1/2/3/4/5): ")
 
+    if choice == '5':
+        print("Exiting the calculator.")
+        break
 
-
+    if choice not in ('1', '2', '3', '4'):
+        print("Invalid choice. Please enter a valid operation.")
+        continue
+    try:
+        num1 = float(input("Enter the first number: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+        logging.error("Invalid input. Please enter a valid number.")
+        continue    
+    try:
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+        logging.error("Invalid input. Please enter a valid number.")
+        continue
+    if choice == '1':
+        result = num1 + num2
+        print(f"The result of {num1} + {num2} is {result}")
+    elif choice == '2':
+        result = num1 - num2
+        print(f"The result of {num1} - {num2} is {result}")
+    elif choice == '3':
+        result = num1 * num2
+        print(f"The result of {num1} * {num2} is {result}")
+    elif choice == '4':
+        try:
+            result = num1 / num2
+            print(f"The result of {num1} / {num2} is {result}")
+        except ZeroDivisionError as e:
+            print("Cannot divide by zero.")
+            logging.error("Cannot divide by zero.")
 
 
 

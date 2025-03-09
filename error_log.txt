@@ -1,0 +1,3 @@
+ERROR:root:Cannot divide by zero.
+ERROR:root:Invalid input. Please enter a valid number.
+ERROR:root:Invalid input. Please enter a valid number.
